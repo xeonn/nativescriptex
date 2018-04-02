@@ -1,20 +1,15 @@
 var frameModule = require("ui/frame");
+var UserViewModel = require("../../shared/view-models/user-view-model");
 var page;
 var email;
-
-var observableModule = require("data/observable");
-var user = new observableModule.fromObject({
-	email: "user@domain.com",
-	password: "password"
-});
+var user = new UserViewModel();
 
 exports.loaded = function(args) {
 	page = args.object;
 	page.bindingContext = user;
 };
 exports.signIn = function() {
-	email = page.getViewById("email");
-	console.log(email.text);
+	user.login();
 };
 exports.register = function() {
 	var topmost = frameModule.topmost();
