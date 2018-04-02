@@ -1,8 +1,8 @@
-var observable = require("data/observable");
 var frameModule = require("ui/frame");
 var page;
 var email;
-var password;
+
+var observableModule = require("data/observable");
 var user = new observableModule.fromObject({
 	email: "user@domain.com",
 	password: "password"
